@@ -6,7 +6,6 @@ metadata:
   labels:
     run: kuard
   name: kuard
-  namespace: demo
 spec:
   containers:
     # you can simply reference gcr.io/kuar-demo/kuard-amd64:blue.
