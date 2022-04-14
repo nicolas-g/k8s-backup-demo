@@ -92,7 +92,7 @@ kubectl create ns velero
 
 kubectl create secret generic cloud-credentials --namespace velero --from-file=cloud=$velero_service_account_key_file_path
 
-helm install velero vmware-tanzu/velero  --namespace velero -f  ~/src/nicolas-g/wiki/kubernetes/velero/velero-gcp-values.yaml --version 2.29.0
+helm install velero vmware-tanzu/velero  --namespace velero -f velero-gcp-values.yaml --version 2.29.0
 ```
 
 #### Velero Backup cluster namespace
