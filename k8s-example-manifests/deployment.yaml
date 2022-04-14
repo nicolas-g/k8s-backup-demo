@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deploy
+  namespace: demo
+  labels:
+    app: demo-app
+    test: test
+spec:
+  selector:
+    matchLabels:
+      app: demo-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+      - name: demo-app
+        # you can simply reference gcr.io/kuar-demo/kuard-amd64:blue.
+        # You can then demonstrate an upgrade with gcr.io/kuar-demo/kuard-amd64:green.
+        # (Another way to think about it is that :blue is essentially :latest-blue)
+        image: gcr.io/kuar-demo/kuard-amd64:blue
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
